@@ -1,0 +1,81 @@
+
+
+
+h1{
+    font-weight: 700;
+}
+
+/* selector de id: siempre empieza con #. Afecta a un solo elemento.*/
+/*
+#titulo{
+    color: indianred;
+}
+*/
+/* selector de class: siempre empieza con .; afecta a todos los miembros de la clase.*/
+
+strong{
+    color: black;
+}
+p{
+    line-height: 20px;
+    letter-spacing: 2px;
+}
+
+body{
+    color: rgb(50, 50, 50);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    margin: 0px;
+}
+
+ul{
+    float: right;
+    display: inline-block;
+}
+
+ul li{
+    display: inline-block;
+}
+
+nav ul li a{
+    background-color: #78909c;
+    text-decoration: none;
+    padding: 15px;
+    color: white;
+}
+
+nav ul li a:hover{
+    background: #f50057;
+    color: #000000;
+}
+
+.logo{
+    width: 150px;
+}
+
+section{
+    margin: 0 auto;
+    width: 80%;
+    min-height: 80vh;
+}
+
+footer{
+    height: 100px;
+    text-align: left;
+    background: #546e7a;
+}
+
+footer p{
+    text-align:  right;
+    padding: 30px;
+}
+
+a{
+    color: inherit;
+}
+
+.card{
+    width: 48%;
+    float: left;
+    margin: 1%;
+}

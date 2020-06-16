@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        
+        let a = 'cata'
+        let b = 'Cata'
+
+        let PuntajeJugador1 = 100
+        let PuntajeJugador2 = 49
+        let PuntajeJugador3 = 85
+
+        if(PuntajeJugador1 > PuntajeJugador2 && PuntajeJugador2 > PuntajeJugador3){
+            console.log('Primer lugar: Jugador 1 ')
+            console.log('Segundo Lugar: Jugador 2')
+            console.log('Tercer Lugar: Jugador 3')
+        }else if(PuntajeJugador1 < PuntajeJugador2 && PuntajeJugador2 < PuntajeJugador3){
+            console.log('Primer lugar: Jugador 3')
+            console.log('Segundo lugar: Jugador 2')
+            console.log('Tercer lugar: Jugador 1')
+        }else if(PuntajeJugador2 > PuntajeJugador1 && PuntajeJugador1 > PuntajeJugador3){
+            console.log('Primer lugar: Jugador 2')
+            console.log('Segundo lugar: Jugador 1')
+            console.log('Tercer lugar: jugador 3')
+        }else if(PuntajeJugador1 > PuntajeJugador2 && PuntajeJugador3 > PuntajeJugador2){
+            console.log('Primer lugar: Jugador 1')
+            console.log('Segundo lugar: Jugador 3')
+            console.log('Tercer lugar: Jugador 2')
+        }
+
+
+
+
+    </script>
+</body>
+</html>

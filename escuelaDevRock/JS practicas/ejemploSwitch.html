@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo Switch</title>
+</head>
+<body>
+    
+
+<ul id="contenedor">
+
+</ul>
+
+<script>
+
+    function llenarUl(algo){
+
+        let ul = document.getElementById('contenedor')
+        let li = document.createElement('li')
+        let txt = document.createTextNode(algo)
+
+        li.appendChild(txt)
+        ul.appendChild(li)
+    }
+
+
+    let dia = -2
+
+
+    switch(dia){
+        case 1:
+            document.write('lunes')
+            break
+        case 2:
+            document.write('martes')
+            break
+        case 3:
+            document.write('miercoles')
+            break
+        case 4:
+            document.write('jueves')
+            break
+        case 5:
+            document.write('viernes')
+            break
+        case 6:
+            document.write('sábado')
+            break
+        case 7:
+            document.write('domingo')
+            break
+        default:
+            //aca entra cuando no hay un case para el caso que se ingresó
+            document.write('Nop.')
+    }
+
+    //if(dia < 1 || dia > 7){
+      //  document.write('Nop.')
+    //}
+
+
+
+</script>
+
+</body>
+</html>

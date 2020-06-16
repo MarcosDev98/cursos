@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+<ul id="contenedor">
+
+</ul>
+
+
+<script>
+
+    let i = 1
+
+    function cargarNumero(unNumero){
+        let ul = document.getElementById('contenedor')
+        let li = document.createElement('li')
+        let txt = document.createTextNode(unNumero)
+
+        li.appendChild(txt)
+        ul.appendChild(li)
+    }
+
+    while(i < 10000){
+        cargarNumero(i)
+        i++
+    }
+
+</script>
+
+
+</body>
+</html>

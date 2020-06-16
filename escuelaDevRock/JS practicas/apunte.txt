@@ -1,0 +1,19 @@
+Declaracion de variables:
+
+var miVariable = "Marcos";
+
+let miVariable2 = 'Antonio';
+
+const miConstante = 3.14;
+
+
+Mostrar en Pantalla (consola):
+
+console.log(miVariable);
+console.log(miConstante);
+console.loge('o texto directamente');
+
+
+Interpolación de texto o Template String:
+
+let resultado = ` Hola querido ${miVariable} cómo te va? `

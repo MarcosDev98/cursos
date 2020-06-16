@@ -1,0 +1,108 @@
+ETIQUETAS CONOCIDAS HASTA EL MOMENTO:
+
+<h1> </h1>: Títulos.
+<hr>: Una linea Horizontal (separador).
+<a href="www.holamundo.com" target="_blank"> acá va el texto que se convierte en hipervinculo </a>: un enlace/hipervinculo.
+<strong>Negrita</strong>: pone las letras en negrita. (no abusar, no es una buena practica, no está bien visto).
+
+<ul>
+     <li>Item 1</li>
+     <li>Item 2</li>
+     <li>Item 3</li>
+     <li>Item 4</li>
+</ul>
+La etiqueta ul es para crear una enumeración (una lista desordenada).
+Cada li es un item dentro de la enumeración.
+
+<ol>
+     <li>Item 1</li>
+     <li>Item 2</li>
+     <li>Item 3</li>
+</ol>
+La etiqueta ol es para crear una lista ordenada. (cada <li> va ir enumerado, 1,2,3,4 etc.)
+
+scaffolding: es la estructura de nuestra web, como armamos las carpetas y como organizamos los archivos.
+
+
+poner letras en gris: practica recomendada no se por que.
+
+ATRIBUTOS DE ETIQUETAS:
+
+atributo id="" : el atributo id="" es un atributo de css que permite identificar un elemento, 
+                en este caso un titulo (H1). No se pueden repetir los id. Afecta a un solo elemento.
+
+<h1 id="cualquierCosa"> TITULOO </h1>
+
+atributo class="" : el atributo class="" tambien es propio de css, permite definir clases para que podamos modificar varios elementos
+		    con un mismo color, fondo, etc. Muchos elementos pueden pertenecer a una misma clase.
+
+<h1 class="Nose"> OTRO TITULO</h1>
+<p class="Nose"> Un párrafo no muy extenso.</p>
+
+
+SELECTORES DE CSS:
+
+Selector de etiquetas nativas de html: modifican a todos los elementos de ese tipo.
+header{}
+body{}
+nav{}
+h1{}
+a{}
+p{}
+strong{}
+
+Selector de id: modifica  a un elemento en especial ya que los ids no se pueden repetir.
+#NombreDelID{
+}
+
+Selector de clases: modifican a todos los elementos que pertenezcan a la clase.
+.NombreDeLaClase{
+}
+
+
+Selectores descendientes:
+
+
+footer p{
+   color: red
+}
+solo modifica los elementos p dentro de la sección footer.
+
+
+selector nth-child():
+por  ejemplo: 
+
+footer p:nth-child(2){
+	color: purple
+}
+el nth-child() busca cuantos elementos p hay dentro del footer y con el numero entre parentesis (2) 
+hago referencia a cual de ellos quiero modificar.
+
+
+Los elementos de html se renderizan de distintas formas, en bloque o en linea. 
+Elementos en bloque: H1, p, ...
+Elementos en linea: a
+
+Los elementos en bloque ocupan toda una linea, es decir, no puedo poner dos elementos en bloque en un mismo renglon.
+
+Con la propiedad display de css podemos cambiar su forma de renderizado.
+ 
+
+display: inline;
+
+display: block;
+
+display inline-blick;
+
+
+propiedad float de css: deja flotar cosas, se usa para poner cajitas en un mismo renglon.
+
+Colores Hexadecimal: https://www.materialpalette.com/
+
+
+OPACITY: propiedad de css que hace transparentes las cosas. Va en una escala de 0 a 1.
+
+Pero para fondos se usa la funcion RGBA(red, green, blue, alpha). Siendo el parametro alpha el parametro que determina la opacidad del elemento.
+
+por ejemplo: background: rgba(0,229,255, 0.5);
+

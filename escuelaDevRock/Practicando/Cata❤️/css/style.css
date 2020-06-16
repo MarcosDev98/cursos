@@ -1,0 +1,46 @@
+img{
+
+    text-align: center;
+    border-image: 2px black;
+    width: 25%;
+    height: 25%;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+#kakapo{
+    color: green;
+    background: orangered;
+}
+
+#kakapo:hover{
+    background-color: green;
+    color: orangered;
+}
+
+.btn{
+    font-size: 30px;
+    color: black;
+    padding: 20px 45px 20px 45px;
+    text-decoration: none;
+    border-radius: 5px;
+
+    border-top: solid 3px black;
+    border-bottom: solid 3px black;
+    border-left: solid 3px black;
+    border-right: solid 3px black;
+
+}
+
+.btn:hover{
+    background: white;
+    color: black;
+    font-size: 40px;
+}
+
+body{
+    background: palevioletred;
+}
