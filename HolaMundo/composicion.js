@@ -43,7 +43,7 @@ const getNombreCompleto2 = (_users) => {
 //programacion tácita o point free.
 const getNombreCompleto3 = compose(generarNombre, capitalizaNombreYApellido, head)
 
-
+//comentario
 const x = getNombreCompleto(users)
 
 const y = getNombreCompleto2(users)
