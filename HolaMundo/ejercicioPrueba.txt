@@ -1,0 +1,16 @@
+Calendario de trabajo o movil:
+
+Construye un calendario donde pueda ver el año completo actual, separado por meses
+en columnas de a 3 pero que estas sean colapsables para poder visualizar desde un
+ telefono. 
+Debe existir un listado con categorias. Estas inicialmente deben ser 
+2 vacaciones y trabajo. 
+Debes podes agregar categorias a este listado y tambien
+debes poder eliminarlas. 
+Las categorias deben ser seleccionables y cuando las 
+selecciones y pinche en un dia de este calendario ese dia se debe marcar con la
+categoria indicada. 
+En el caso de que el dia ya tenga una categoria debe indicar que tiene las 
+2 categorias. 
+Si vuelvo a pinchar en algun dia debe quitar la categoria
+que se encuentra seleccionada.

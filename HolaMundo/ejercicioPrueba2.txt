@@ -1,0 +1,11 @@
+Puntos de Georefencia favoritos: web o movil.
+Crear una aplicacion que tenga acceso al mapa de Google Maps y sobre éste que
+muestre un listado de puntos (sobre el mapa, no puede estar a un lado).
+Al pinchar sobre el mapa debe colocar un pin y un menú donde me de las opciones
+de guardar el punto o cancelar.
+Este tambien debe mostrar la foto de google street view. 
+Si el punto se guarda este debe aparecer en el listado de puntos con la 
+opcion de eliminarlos pero si pincho en el punto del (o el, no entendí bien) mapa 
+debe moverse hasta la ubicacion actual del punto. 
+El pin debe ser uno custom que incluya la inicial del nombre del punto. 
+Ademas el listado tiene que poder ser colapsable.
