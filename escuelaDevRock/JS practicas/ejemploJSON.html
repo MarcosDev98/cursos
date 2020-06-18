@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+    
+
+<script>
+/*
+
+JSON!!!
+
+JavaScript Objetc Notation
+Es un estandar basado en texto plano para el intercambio 
+de informacion
+
+JSON permite representar 6 tipos distintos de datos.
+4 tipos primitivos: Strings, Números, booleanos, null,
+2 tipos estructurados: objetos y arreglos.
+*/
+var alumno = {
+    nombre: 'Marcos',
+    edad: '32',
+    email: 'marcos@ejemplo.com',
+    saludar:function(){
+        document.write("Hola buen día")
+    },
+    cursos:['freelancer','wordpress','frontend']
+}
+
+document.write("El nombre es: " + alumno.nombre+"<br>")
+document.write("La edad es: " + alumno.edad+"<br>")
+alumno.saludar()
+alumno.cursos.forEach(element => {
+    document.write("<br>" + element)
+    
+});
+
+</script>
+
+
+</body>
+</html>
