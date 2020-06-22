@@ -17,3 +17,16 @@ console.loge('o texto directamente');
 Interpolación de texto o Template String:
 
 let resultado = ` Hola querido ${miVariable} cómo te va? `
+
+
+JavaScript Asíncrono.
+
+JavaScript permite que trabajemos de forma asincrona. 
+Esto es: cuando le solicitamos que haga tareas que pueden llevar un tiempo "largo" js continua con otras tareas mientras esta tarea mas larga finaliza.
+
+JS no es multihilo, es asincronico y concurrente.
+
+
+
+
+
