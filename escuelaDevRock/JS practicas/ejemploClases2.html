@@ -15,10 +15,16 @@ class Humano{
         this.edad = _edad
         this.email =  _email
 
-
+    }
+    saludar(){
+        document.write('Hola soy ' + this.nombre + "<br>")
     }
 
+    get nombre(){
+        return this.nombre
+    }
 
+    
 }
 
 class Alumno extends Humano{
@@ -26,6 +32,10 @@ class Alumno extends Humano{
         document.write('Compró un curso.')
     }
 }
+
+
+
+
 
 
 </script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodos Estaticos</title>
+</head>
+<body>
+    
+
+<script>
+
+
+class Humano{
+    constructor(nombre,edad,email){
+        this._nombre = nombre
+        this._edad = edad
+        this._email =  email
+
+    }
+    saludar(){
+        document.write('Hola soy ' + this.nombre + "<br>")
+    }
+    //GETTERS
+    get nombre (){
+        return this._nombre;
+    }
+
+    get edad (){
+        return this._edad;
+    }
+    
+    get email(){
+        return this._email
+    }
+
+    //SETTERS
+    set nombre(nombre){
+        this._nombre = nombre;
+    }
+
+    set edad(edad){
+        this._edad = edad
+    }
+
+    set email(email){
+        this._email = email
+    }
+
+    //METODOS
+
+    static saludarEstatico(){
+        document.write('Saludar Estático')
+    }
+
+    
+
+    }
+
+
+
+class createHuman{
+    static create(nombre, edad, email, tipo){
+        if(tipo == 'profe' || tipo == 'Profe'){
+            return new Profe(nombre, edad, email)
+        } else if(tipo == 'alumno' || tipo == 'Alumno'){
+            return new Alumno(nombre, edad, email)
+        }
+        else{
+            document.write("No es un tipo de humano reconocido.")}
+    }
+}
+
+
+class Alumno extends Humano{
+    saludar(){
+        document.write('Saludos soy el alumno ' + this._nombre)
+    }
+}
+
+
+class Profe extends Humano{
+    calificar(){
+        document.write('El profe ' + this._nombre + ' calificó')
+    }
+
+    saludar(){
+        document.write('Saludos soy el profe ' + this._nombre)
+    }
+
+
+
+}
+//let marcos = new Humano('Marcos Aguado', 21, 'marcos1903@live.com.ar')
+
+
+//Humano.saludarEstatico()
+
+cata = createHuman.create('Catalina Massone', '21', 'catalinamassone@yahoo.com.ar', 'alumno')
+
+cata.saludar()
+
+</script>
+
+
+</body>
+</html>
