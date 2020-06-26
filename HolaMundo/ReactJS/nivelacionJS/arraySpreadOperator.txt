@@ -1,0 +1,25 @@
+/**
+ *
+ * array spread operator
+ *
+ *
+ * se utiliza para separar o esparcir los elementos de un array.
+ *
+ *
+ *
+ *
+ */
+
+const arr = [1, 2, 4, 5];
+
+const suma = (a, b, c, d) => a + b + c + d;
+
+//pasando como parametros ...arr lo que hace es que le va asignar al primer parametro el valor del array en la posicion 0, al segundo parametro el valor del array en la posicion 1, y así sucesivamente, hasta que la funcion no necesite mas parametros.
+const resultado = suma(...arr);
+
+console.log(resultado);
+
+// otra utilidad
+
+// si quiero generar una copia del arreglo debo hacerlo así, ya que sino solo estoy creando una nueva referencia al mismo arreglo. En cambio de esta manera le paso los valroes de arr a arr2.
+const arr2 = [...arr];

@@ -1,0 +1,20 @@
+				OBJETIVOS DEL CURSO
+
+* Entender el objetivo de ReactJS dentro de una aplicacion.
+
+* Construir interfaces de usuario utilizando ReactJS
+
+* Entender el ciclo de vida de los componentes.
+
+* Construir aplicaciones utilizando estándares internacionales.
+
+* Construir rápido interfaces de usuario.
+
+
+Resumiendo:
+
+En objetivo de este curso es que nosotros podamos tomar una app que nosotros
+vayamos a construir, llevarla a piezas elementales o pequeñas piezas de lego
+las cual nosotros despues vamos a utilizar para ensamblar nuestra apliacion.
+De esta manera nosotros vamos a poder construir mas y mas rápido nuesta app
+a lo largo que empieza a avanzar el tiempo y cada vez vamos a demorar menos.

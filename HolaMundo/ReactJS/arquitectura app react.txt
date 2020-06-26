@@ -1,0 +1,26 @@
+					COMPONENTES
+
+				ARQUITECTURA APP REACT
+
+Es una estructura en forma de arbol (binario???) con un componente padre, el cual
+va tener componentes hijos y así...
+
+COMPOSICION: 
+* Funciones que hacen "cosas".
+* Trabajan con datos.
+* Las funciones se pueden encadenar o componer y construir así funciones
+mas grandes
+* Son sencillas de testear.
+* Son acotadas.
+					(verlo como un arbol :P)
+					CONTENEDOR								
+		
+		COMPONENTE HIJO				FORMULARIO
+
+	H1				SECCION				INPUT				
+								
+								
+									
+									
+								
+								

@@ -1,0 +1,40 @@
+/**
+ *
+ * object destructuring
+ *
+ * nos va a servir cuando nosotros queramos obtener solamente
+ * algunas propiedades de un objeto
+ *
+ *
+ * object destructuring podemos aplicarlo en doscircunstancias.
+ *
+ * 1. cuando nosotros necesitamos utilizar alguna propiedad de
+ * un objeto en particular en nuestra funcion.
+ *
+ * 2. o tambien cuando queremos hacer una asignacion de constan
+ * tes pero hacia el lado izquierdo.
+ *
+ */
+
+//una forma de hacerlo
+const servicios = {
+  api: {},
+  mailer: "soy mailer",
+  apollo: {},
+};
+
+const enviarCorreo = ({ mailer }) => {
+  console.log(mailer);
+};
+
+// redactar codigo que envia correo
+enviarCorreo(servicios);
+
+//otra forma de hacerlo
+
+const enviarCorreo2 = (srs) => {
+  const { mailer } = srs;
+  console.log(mailer);
+};
+
+enviarCorreo2(servicios);

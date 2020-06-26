@@ -1,0 +1,44 @@
+			DISTINTOS MODELOS DE ARQUITECTURA
+
+
+			MVC: MODELO - VISTA - CONTROLADOR
+
+
+MODELO: en el modelo se hacen todas las operaciones lógicas o matemáticas como
+tambien consultas a la BD.
+
+CONTROLADOR: el controlador es el encargado de recibir una accion o una peticion
+la cual tiene que, utilizando los modelos, definir una respuesta la cual va ser
+entregada a la VISTA.
+
+VISTA: la vista va a mostrar u ocultar datos, segun corresponda.
+
+Workflow del MVC:
+
+MODELO  <----->  CONTROLADOR  <----->   VISTA
+
+
+En este contexto ReactJS está acotado a única y exclusivamente a la VISTA.
+Si bien existen alternativas para que nosotros podamos crear una aplicación con 
+ReactJS, lo mas recomendable es que lo usemos exclusivamente para la VISTA.
+
+
+				ARQUITECTURA FLUX
+
+			FLUX: ESTADO - ACCIONES - VISTA
+
+Workflow de flux:
+
+VISTA -----> ACCIONES -----> ESTADO 
+
+A partir de las vistas vamos a generar acciones (Síncronas o Asíncronas) que
+puede ser, realizar una peticion ajax, sumar datos a un contador, iniciar sesion. 
+Cualquier tipo de accion o cosa que nosotros queramos ejecutar dentro de una app.
+Estas acciones lo que van a hacer es actualizar el ESTADO de nuestra app.
+El ESTADO hace referencia a los datos que esta conteniendo nuestra app, no solo 
+los datos que existen en la BD sino tambien pueden ser datos enfocado a la vista 
+como por ejemplo, filtro de visibilidad, rutas que nosotros estemos viendo, etc.
+Según vaya cambiando el ESTADO, la VISTA también irá cambiando, lo que dara lugar
+a nuevas ACCIONES.
+Por lo cual este modelo es un ciclo, que nace de la VISTA, pasa por las ACCIONES,
+las cuales modifican el ESTADO y este vuelve a modificar la VISTA.

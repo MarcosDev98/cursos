@@ -1,0 +1,17 @@
+/**
+ *
+ * fat arrow functions
+ *
+ *
+ */
+
+/* function fn1(a, b) {
+  return a + b;
+}
+
+const resultado = fn1(2, 3);
+console.log(resultado);
+ */
+
+//toda fat arrow function viene con un return implicito.
+//const fn1 = (a, b) => a + b;

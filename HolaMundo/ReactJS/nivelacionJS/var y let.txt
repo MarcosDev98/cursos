@@ -1,0 +1,30 @@
+/**
+ *
+ * const
+ * let
+ *
+ * la diferencia de let y var se encuentra en como el
+ * compilador trabaja con cada una.
+ *
+ * a las variables definidas con "var" el compilador
+ * las re-define en la primera linea de código.
+ *
+ * Por lo cual, si intentamos mostrar/utilizar una variable,
+ * previo a darle el valor, js nos lo va a permitir, pues el
+ * compilador definio a esa variable en la primera linea, pero
+ * tal vez nosotros le asignamos valores en otro lado. (Son
+ * casos raros, es dificil encontrar ejemplos).
+ * Esto es peligroso pues, el programa se ejecutara pero no
+ * sabemos si el valor que nos informa/muestra es correcto, ya
+ * que podria ser efecto de una mala programacion nuestra, la
+ * cual no detectamos debido a la forma en que el compilador
+ * trabaja con "var".
+ *
+ *
+ * En cambio con "let" si intentamos hacer lo mismo nos va a dar
+ * un error.
+ * Por eso es recomendable usar "let" en lugar de "var"
+ * ya que nos obliga a ser mas cuidadosos a la hora de programar
+ * ya que sino, el codigo no se va a ejecutar.
+ *
+ */
