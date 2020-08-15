@@ -1,0 +1,21 @@
+.borde {
+  background-color: grey;
+  height: 50px;
+}
+
+.borde1 {
+  background-color: aquamarine;
+  height: 50px;
+}
+
+.borde2 {
+  background-color: olivedrab;
+  text-align: center;
+  height: 50px;
+}
+
+.borde3 {
+  background-color: orangered;
+  text-align: center;
+  height: 50px;
+}
