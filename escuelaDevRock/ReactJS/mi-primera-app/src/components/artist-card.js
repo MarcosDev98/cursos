@@ -10,14 +10,52 @@ const styles = {
 class ArtistCard extends React.Component {
   render() {
     return (
-      <div className="item">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSFUwUFqOLvKSsQAew1EI1x6roJSDInRWFFGQ&usqp=CAU"
-          alt="Logo AC/DC"
-          className="pic"
-        />
+      <div>
+        <div className="item">
+          <img
+            src="https://img.discogs.com/C0yIaStm5NWF-u4_z3ftK_lONDs=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-573388-1379265270-2318.jpeg.jpg"
+            alt="Logo AC/DC"
+            className="pic"
+          />
 
-        <p className="titulo">AC/DC</p>
+          <p className="titulo">Iron Maiden</p>
+        </div>
+        <div className="item">
+          <img
+            src="https://img.discogs.com/C0yIaStm5NWF-u4_z3ftK_lONDs=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-573388-1379265270-2318.jpeg.jpg"
+            alt="Logo AC/DC"
+            className="pic"
+          />
+
+          <p className="titulo">Iron Maiden</p>
+        </div>
+        <div className="item">
+          <img
+            src="https://img.discogs.com/C0yIaStm5NWF-u4_z3ftK_lONDs=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-573388-1379265270-2318.jpeg.jpg"
+            alt="Logo AC/DC"
+            className="pic"
+          />
+
+          <p className="titulo">Iron Maiden</p>
+        </div>
+        <div className="item">
+          <img
+            src="https://img.discogs.com/C0yIaStm5NWF-u4_z3ftK_lONDs=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-573388-1379265270-2318.jpeg.jpg"
+            alt="Logo AC/DC"
+            className="pic"
+          />
+
+          <p className="titulo">Iron Maiden</p>
+        </div>
+        <div className="item">
+          <img
+            src="https://img.discogs.com/C0yIaStm5NWF-u4_z3ftK_lONDs=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-573388-1379265270-2318.jpeg.jpg"
+            alt="Logo AC/DC"
+            className="pic"
+          />
+
+          <p className="titulo">Iron Maiden</p>
+        </div>
       </div>
     );
   }
