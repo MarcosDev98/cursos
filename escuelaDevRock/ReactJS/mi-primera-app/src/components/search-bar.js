@@ -39,10 +39,10 @@ class SearchBar extends React.Component {
                 <input
                   name="busqueda"
                   type="text"
-                  value={this.state.busqueda}
+                  value={this.props.busqueda}
                   id="buscar"
                   placeholder="Buscar"
-                  onChange={this.handleChange}
+                  onChange={this.props.onChange}
                 />
               </div>
             </form>

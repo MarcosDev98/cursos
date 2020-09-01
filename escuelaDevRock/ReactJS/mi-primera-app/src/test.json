@@ -1,0 +1,57 @@
+{
+  "artist": [
+    {
+      "name": "Allie X",
+      "match": "1",
+      "url": "https://www.last.fm/music/Allie+X",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/e029e6f59ea5149ae348ad1010836a0b.webp#e029e6f59ea5149ae348ad1010836a0b"
+    },
+    {
+      "name": "Lorde",
+      "mbid": "8e494408-8620-4c6a-82c2-c2ca4a1e4f12",
+      "match": "0.827789",
+      "url": "https://www.last.fm/music/Lorde",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/4e007264d86a070077c5eae116290a24.webp#4e007264d86a070077c5eae116290a24"
+    },
+    {
+      "name": "Billie Eilish",
+      "match": "0.811899",
+      "url": "https://www.last.fm/music/Billie+Eilish",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/e59ec87c40913097ee16569cdd79be8f.webp#e59ec87c40913097ee16569cdd79be8f"
+    },
+    {
+      "name": "Marina",
+      "mbid": "fe0ad4d4-391b-4f43-b02f-4d2ed0ab2b5e",
+      "match": "0.648183",
+      "url": "https://www.last.fm/music/Marina",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/66436e8471afc48c9ec68f47c203fd08.webp#66436e8471afc48c9ec68f47c203fd08"
+    },
+    {
+      "name": "BROODS",
+      "mbid": "68205c8f-9518-4b49-8df7-bd297da67599",
+      "match": "0.573807",
+      "url": "https://www.last.fm/music/BROODS",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/d143d2800acab297135d69c167909059.webp#d143d2800acab297135d69c167909059"
+    },
+    {
+      "name": "Declan Mckenna",
+      "match": "0.525606",
+      "url": "https://www.last.fm/music/Declan+Mckenna",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/95ea43ed030c0aa82fe89f3995b100e2.webp#95ea43ed030c0aa82fe89f3995b100e2"
+    },
+    {
+      "name": "Susanne Sundfør",
+      "mbid": "f3f9e76a-0685-4a9a-97d1-6fa2b50f9fba",
+      "match": "0.463562",
+      "url": "https://www.last.fm/music/Susanne+Sundf%C3%B8r",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/6a19be40758d4088c0260e53824d2f91.webp#6a19be40758d4088c0260e53824d2f91"
+    },
+    {
+      "name": "iamamiwhoami",
+      "mbid": "9aaa99df-9383-47df-92af-8bb5e5595815",
+      "match": "0.457291",
+      "url": "https://www.last.fm/music/iamamiwhoami",
+      "image": "https://lastfm.freetls.fastly.net/i/u/770x0/f884b3f3a169425aa681e1faa410aa13.webp#f884b3f3a169425aa681e1faa410aa13"
+    }
+  ]
+}

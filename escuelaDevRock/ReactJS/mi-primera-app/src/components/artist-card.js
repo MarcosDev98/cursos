@@ -1,11 +1,5 @@
 import React from "react";
 import "./artist-card.css";
-const styles = {
-  p: {
-    color: "red",
-    fontSize: "30px",
-  },
-};
 
 class ArtistCard extends React.Component {
   render() {
