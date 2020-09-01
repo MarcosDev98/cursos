@@ -1,29 +1,45 @@
 import React from "react";
+import "./search-bar.css";
+import logo from "../logo.svg";
 
 class SearchBar extends React.Component {
+  handleChange = (e) => {
+    console.log(e.target.name, e.target.value);
+  };
+  handleClick = (e) => {
+    e.preventDefault();
+    console.log(e.target.name, "Ouch, me apretaron");
+  };
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target.name);
+  };
   render() {
     return (
       <React.Fragment>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-2">logo</div>
-            <div className="col-md-4">
-              <form className="form-inline">
-                <div className="form-group mx-sm-3 mb-2">
-                  <label htmlFor="inputPassword2" className="sr-only">
-                    Password
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Buscar"
-                  />
-                </div>
-                <button type="submit" className="btn btn-primary mb-2">
-                  Buscar
-                </button>
-              </form>
-            </div>
+        <div className="row">
+          <div className="col-md-2">
+            <img src={logo} alt="" className="logo-barra" />
+          </div>
+          <div className="col-md-4">
+            <form
+              name="Soy un form"
+              className="form-inline"
+              onSubmit={this.handleSubmit}
+            >
+              <div className="busqueda">
+                <label htmlFor="inputPassword2" className="sr-only">
+                  Password
+                </label>
+                <input
+                  name="Me llamo Input"
+                  type="text"
+                  id="buscar"
+                  placeholder="Buscar"
+                  onChange={this.handleChange}
+                />
+              </div>
+            </form>
           </div>
         </div>
       </React.Fragment>
