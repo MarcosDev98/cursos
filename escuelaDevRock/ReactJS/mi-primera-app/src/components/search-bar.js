@@ -3,7 +3,12 @@ import "./search-bar.css";
 import logo from "../logo.svg";
 
 class SearchBar extends React.Component {
+  state = {
+    busqueda: "",
+  };
+
   handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
     console.log(e.target.name, e.target.value);
   };
   handleClick = (e) => {
@@ -32,8 +37,9 @@ class SearchBar extends React.Component {
                   Password
                 </label>
                 <input
-                  name="Me llamo Input"
+                  name="busqueda"
                   type="text"
+                  value={this.state.busqueda}
                   id="buscar"
                   placeholder="Buscar"
                   onChange={this.handleChange}
