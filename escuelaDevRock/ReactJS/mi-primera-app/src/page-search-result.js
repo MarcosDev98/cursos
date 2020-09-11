@@ -8,12 +8,21 @@ class pageSearchResult extends React.Component {
     busqueda: "",
   };
 
+  componentDidMount() {
+    console.log("componentDidMount", "Luego del metodo render()");
+  }
+
+  componentWillMount() {
+    console.log("componentWillMount()", "Antes del Método render()");
+  }
+
   changeHandle = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
   render() {
+    console.log("render()", "Estoy en el método render");
     return (
       <React.Fragment>
         <SearchBar

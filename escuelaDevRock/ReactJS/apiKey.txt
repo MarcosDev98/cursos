@@ -1,0 +1,4 @@
+Application name	findRockTest
+API key	d7c0b1163d76ca33e9ebe1b73c72a642
+Shared secret	efc135e5417be78984a01d88e6618d22
+Registered to	marcosolda
