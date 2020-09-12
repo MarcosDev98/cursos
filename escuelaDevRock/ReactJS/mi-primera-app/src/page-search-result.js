@@ -9,20 +9,23 @@ class pageSearchResult extends React.Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount", "Luego del metodo render()");
+    let search = this.props.history.location.search.substr(1);
+
+    this.setState({
+      busqueda: search,
+    });
   }
 
-  componentWillMount() {
-    console.log("componentWillMount()", "Antes del Método render()");
-  }
+  componentWillMount() {}
 
   changeHandle = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      busqueda: e.target.value,
     });
+    //acá iria pero nose como...
+    this.props.history.push("/busqueda?" + this.state.busqueda);
   };
   render() {
-    console.log("render()", "Estoy en el método render");
     return (
       <React.Fragment>
         <SearchBar
