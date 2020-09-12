@@ -1,8 +1,11 @@
 import React from "react";
 import ArtistCard from "./artist-card";
+import Loading from "./loading";
 
 class SearchResult extends React.Component {
   state = {
+    loading: false,
+
     data: {
       similarartists: {
         artist: [],
@@ -16,11 +19,15 @@ class SearchResult extends React.Component {
   }
 
   fetchData = async (url) => {
+    this.setState({
+      loading: true,
+    });
     const response = await fetch(url);
     const data = await response.json();
 
     this.setState({
       data: data,
+      loading: false,
     });
     console.log(data, "lo que trae la  api");
   };
@@ -28,6 +35,7 @@ class SearchResult extends React.Component {
   render() {
     return (
       <React.Fragment>
+        {this.state.loading && <Loading />}
         <div className="container">
           <div className="row">
             {this.state.data.similarartists.artist.map((item, i) => {
