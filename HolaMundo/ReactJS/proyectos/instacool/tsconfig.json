@@ -24,5 +24,9 @@
   ],
   "exclude": [
     "functions",
+    "jest",
+    "node_modules",
+    "build",
+    "scripts",
   ]
 }
