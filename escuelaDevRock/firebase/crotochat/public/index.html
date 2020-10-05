@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to crotoChat</title>
+
+
+  <style media="screen">
+    body {
+      background: #ECEFF1;
+      color: rgba(0, 0, 0, 0.87);
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #message {
+      background: white;
+      max-width: 360px;
+      margin: 100px auto 16px;
+      padding: 32px 24px;
+      border-radius: 3px;
+    }
+
+    #message h2 {
+      color: #ffa100;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    #message h1 {
+      font-size: 22px;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 0 0 16px;
+    }
+
+    #message p {
+      line-height: 140%;
+      margin: 16px 0 24px;
+      font-size: 14px;
+    }
+
+    #message a {
+      display: block;
+      text-align: center;
+      background: #039be5;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+    }
+
+    #message,
+    #message a {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    #load {
+      color: rgba(0, 0, 0, 0.4);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+
+      body,
+      #message {
+        margin-top: 0;
+        background: white;
+        box-shadow: none;
+      }
+
+      body {
+        border-top: 16px solid #ffa100;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="message">
+    <h2>Bienvenidos a crotoChat</h2>
+    <h1>Firebase Hosting Setup Complete</h1>
+    <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something
+      extraordinary!</p>
+    <a id="login" href="">Logueate papu</a>
+    <br>
+    <a id="logout" href="">Deslogueate máquina.</a>
+  </div>
+  <p id="load">Firebase SDK Loading&hellip;</p>
+
+
+
+
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
+
+
+  <script>
+
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDfGmem7Bnulu9nMXOXGFAX0u6nnLLQsAg",
+      authDomain: "crotochat-299fd.firebaseapp.com",
+      databaseURL: "https://crotochat-299fd.firebaseio.com",
+      projectId: "crotochat-299fd",
+      storageBucket: "crotochat-299fd.appspot.com",
+      messagingSenderId: "1006604243318",
+      appId: "1:1006604243318:web:4fdfc69610abd0d0786a57",
+      measurementId: "G-SLDE04MFYT"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    let button = document.getElementById("login")
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      logearConGoogle()
+    })
+
+    function logearConGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      console.log("Entra o no entra?");
+      firebase.auth().signInWithPopup(provider).then(result => console.log("Se logueó: ", result.user.email)).catch(error => console.log(error.message))
+      console.log("Hace algo che?");
+    }
+
+
+  </script>
+</body>
+
+</html>
