@@ -6,93 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Welcome to crotoChat</title>
 
-
-  <style media="screen">
-    body {
-      background: #ECEFF1;
-      color: rgba(0, 0, 0, 0.87);
-      font-family: Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    #message {
-      background: white;
-      max-width: 360px;
-      margin: 100px auto 16px;
-      padding: 32px 24px;
-      border-radius: 3px;
-    }
-
-    #message h2 {
-      color: #ffa100;
-      font-weight: bold;
-      font-size: 16px;
-      margin: 0 0 8px;
-    }
-
-    #message h1 {
-      font-size: 22px;
-      font-weight: 300;
-      color: rgba(0, 0, 0, 0.6);
-      margin: 0 0 16px;
-    }
-
-    #message p {
-      line-height: 140%;
-      margin: 16px 0 24px;
-      font-size: 14px;
-    }
-
-    #message a {
-      display: block;
-      text-align: center;
-      background: #039be5;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: white;
-      padding: 16px;
-      border-radius: 4px;
-    }
-
-    #message,
-    #message a {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    }
-
-    #load {
-      color: rgba(0, 0, 0, 0.4);
-      text-align: center;
-      font-size: 13px;
-    }
-
-    @media (max-width: 600px) {
-
-      body,
-      #message {
-        margin-top: 0;
-        background: white;
-        box-shadow: none;
-      }
-
-      body {
-        border-top: 16px solid #ffa100;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
   <div id="message">
+    <img class="redondo"
+      src="https://lh3.googleusercontent.com/proxy/xZAG5TA8ietmoA0bHqVDL5HNbw4a7z4XhRAcodDp8ojSfVXJo0q5T6-_6W_enEWFod6ws485WdEWPmiTbnRdXfOwkbUkwbVXreSQ3j-mVUu0lbQ81_YZVxhnOkJvspyVz0Ih3MfvDKxy"
+      alt="">
     <h2>Bienvenidos a crotoChat</h2>
-    <h1>Firebase Hosting Setup Complete</h1>
-    <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something
-      extraordinary!</p>
     <a id="login" href="">Logueate papu</a>
     <br>
-    <a id="logout" href="">Deslogueate máquina.</a>
+    <a id="logout" style="display: none;" href="">Deslogueate máquina.</a>
   </div>
-  <p id="load">Firebase SDK Loading&hellip;</p>
+
 
 
 
@@ -126,18 +53,45 @@
     firebase.initializeApp(firebaseConfig);
 
     let button = document.getElementById("login")
+    let salir = document.getElementById("logout")
+
+    salir.addEventListener("click", (e) => {
+      e.preventDefault()
+      desloguear()
+    })
+
     button.addEventListener("click", (e) => {
       e.preventDefault();
       logearConGoogle()
     })
 
+    let usuario = {};
+
     function logearConGoogle() {
       const provider = new firebase.auth.GoogleAuthProvider();
-      console.log("Entra o no entra?");
-      firebase.auth().signInWithPopup(provider).then(result => console.log("Se logueó: ", result.user.email)).catch(error => console.log(error.message))
-      console.log("Hace algo che?");
+
+      firebase.auth().signInWithPopup(provider).then(result => {
+        console.log("Se logueó: ", result.user.email)
+        usuario = result
+        console.log(usuario, "lo que trae el objeto");
+
+      }).catch(error => console.log(error.message))
+      button.style.display = "none";
+      salir.style.display = "block";
     }
 
+    function desloguear() {
+
+      firebase.auth().signOut().then(function () {
+        console.log("Nos deslogueamos");
+      }).catch(function (err) {
+        console.log(err.message, "error loco");
+      })
+
+
+      salir.style.display = "none";
+      button.style.display = "block";
+    }
 
   </script>
 </body>
