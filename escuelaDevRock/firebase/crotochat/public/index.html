@@ -1,112 +1,159 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to crotoChat</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to crotoChat</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-  <link rel="stylesheet" href="./css/style.css">
-</head>
+  <body>
+    <div id="message">
+      <img
+        class="redondo"
+        id="pic"
+        src="https://lh3.googleusercontent.com/proxy/5R_p5nW-0Fzhn4l2CQj9qNQVWn_WZsLvCuiymdbhk8D-fepYqgQFUsnmg1yTRUcNOU9oSSqlrxQlpMXkrvt8HCFQIqXnZuRNcYS5b4NUlcQnz-QQIdQEKRxrpQhUMdDR144U83zViwQ_"
+        alt=""
+      />
+      <h2 id="name">Bienvenidos a crotochat</h2>
+      <p id="email"></p>
+      <a id="login" href="">Logueate papu</a>
+      <br />
+      <a id="logout" style="display: none" href="">Deslogueate máquina.</a>
 
-<body>
-  <div id="message">
-    <img class="redondo" id="pic"
-      src="https://lh3.googleusercontent.com/proxy/xZAG5TA8ietmoA0bHqVDL5HNbw4a7z4XhRAcodDp8ojSfVXJo0q5T6-_6W_enEWFod6ws485WdEWPmiTbnRdXfOwkbUkwbVXreSQ3j-mVUu0lbQ81_YZVxhnOkJvspyVz0Ih3MfvDKxy"
-      alt="">
-    <h2 id="name">Bienvenidos a crotochat</h2>
-    <p id="email"></p>
-    <a id="login" href="">Logueate papu</a>
-    <br>
-    <a id="logout" style="display: none;" href="">Deslogueate máquina.</a>
-  </div>
+      <div id="mensajesContainer" style="display: none">
+        <ul id="mensajes">
+          <li><strong>Marcos:</strong>Hola papi</li>
+        </ul>
+        <input type="text" id="mensaje" placeholder="Escribí tu mensaje" />
+        <button id="pushMensaje">Enviar mensaje</button>
+      </div>
+    </div>
 
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
 
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
 
+    <script>
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDfGmem7Bnulu9nMXOXGFAX0u6nnLLQsAg",
+        authDomain: "crotochat-299fd.firebaseapp.com",
+        databaseURL: "https://crotochat-299fd.firebaseio.com",
+        projectId: "crotochat-299fd",
+        storageBucket: "crotochat-299fd.appspot.com",
+        messagingSenderId: "1006604243318",
+        appId: "1:1006604243318:web:4fdfc69610abd0d0786a57",
+        measurementId: "G-SLDE04MFYT",
+      };
 
+      firebase.initializeApp(firebaseConfig);
 
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+      let button = document.getElementById("login");
+      let salir = document.getElementById("logout");
+      let name = document.getElementById("name");
+      let pic = document.getElementById("pic");
+      let email = document.getElementById("email");
+      let pushMensaje = document.getElementById("pushMensaje");
+      let mensaje = document.getElementById("mensaje");
+      let mensajes = document.getElementById("mensajes");
+      let mensajesContainer = document.getElementById("mensajesContainer");
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+      salir.addEventListener("click", (e) => {
+        e.preventDefault();
+        desloguear();
+      });
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        logearConGoogle();
+      });
 
+      pushMensaje.addEventListener("click", (e) => {
+        e.preventDefault();
+        guardarMensaje();
+      });
 
+      let usuario = {};
 
-  <script>
+      function guardarMensaje() {
+        const record = {
+          avatar: usuario.user.photoURL,
+          nombre: usuario.user.displayName,
+          txt: mensaje.value,
+        };
 
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyDfGmem7Bnulu9nMXOXGFAX0u6nnLLQsAg",
-      authDomain: "crotochat-299fd.firebaseapp.com",
-      databaseURL: "https://crotochat-299fd.firebaseio.com",
-      projectId: "crotochat-299fd",
-      storageBucket: "crotochat-299fd.appspot.com",
-      messagingSenderId: "1006604243318",
-      appId: "1:1006604243318:web:4fdfc69610abd0d0786a57",
-      measurementId: "G-SLDE04MFYT"
-    };
+        const db = firebase.database();
+        const dbRef = db.ref("mensajes");
+        const newMensaje = dbRef.push();
+        newMensaje.set(record);
 
-    firebase.initializeApp(firebaseConfig);
+        mensaje.value = "";
+      }
 
-    let button = document.getElementById("login")
-    let salir = document.getElementById("logout")
-    let name = document.getElementById("name")
-    let pic = document.getElementById("pic")
-    let email = document.getElementById("email")
+      function logearConGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
 
-    salir.addEventListener("click", (e) => {
-      e.preventDefault()
-      desloguear()
-    })
+        firebase
+          .auth()
+          .signInWithPopup(provider)
+          .then((result) => {
+            console.log("Se logueó: ", result.user.email);
+            usuario = result;
+            lookearUsuario();
+          })
+          .catch((error) => console.log(error.message));
+      }
 
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      logearConGoogle()
-    })
+      function desloguear() {
+        firebase
+          .auth()
+          .signOut()
+          .then(function () {
+            console.log("Nos deslogueamos");
+          })
+          .catch(function (err) {
+            console.log(err.message, "error loco");
+          });
 
-    let usuario = {};
+        deslookearUsuario();
+        salir.style.display = "none";
+        button.style.display = "block";
+      }
 
-    function logearConGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
+      function lookearUsuario() {
+        name.innerHTML = usuario.user.displayName;
+        email.innerHTML = usuario.user.email;
+        pic.src = usuario.user.photoURL;
+        button.style.display = "none";
+        salir.style.display = "block";
+        mensajesContainer.style.display = "block";
+      }
 
-      firebase.auth().signInWithPopup(provider).then(result => {
-        console.log("Se logueó: ", result.user.email)
-        usuario = result
-        lookearUsuario()
+      function deslookearUsuario() {
+        pic.src =
+          "https://lh3.googleusercontent.com/proxy/5R_p5nW-0Fzhn4l2CQj9qNQVWn_WZsLvCuiymdbhk8D-fepYqgQFUsnmg1yTRUcNOU9oSSqlrxQlpMXkrvt8HCFQIqXnZuRNcYS5b4NUlcQnz-QQIdQEKRxrpQhUMdDR144U83zViwQ_";
+        name.innerHTML = "Bienvenidos a crotochat";
+        email.innerHTML = "";
+        mensajesContainer.style.display = "none";
+      }
 
-      }).catch(error => console.log(error.message))
-      button.style.display = "none";
-      salir.style.display = "block";
-    }
-
-    function desloguear() {
-
-      firebase.auth().signOut().then(function () {
-        console.log("Nos deslogueamos");
-      }).catch(function (err) {
-        console.log(err.message, "error loco");
-      })
-
-
-      salir.style.display = "none";
-      button.style.display = "block";
-    }
-
-    function lookearUsuario() {
-
-      name.innerHTML = usuario.user.displayName
-      email.innerHTML = usuario.user.email
-      pic.src = usuario.user.photoURL
-
-
-    }
-
-  </script>
-</body>
-
+      document.addEventListener("DOMContentLoaded", () => {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            usuario = { user: user };
+            lookearUsuario();
+          }
+        });
+        console.log("La página está cargada");
+      });
+    </script>
+  </body>
 </html>
