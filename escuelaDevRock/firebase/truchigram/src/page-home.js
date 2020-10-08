@@ -1,0 +1,47 @@
+import React from "react";
+import insta from "./instashot.png";
+import firebase from "firebase/app";
+import "firebase/auth";
+
+class Home extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <div className="container vh100">
+          <div className="row ">
+            <div className="col m4 l5 offset-l1 off">
+              <img alt="" src={insta} />
+            </div>
+            <div className="col m3 l3 top120">
+              <div className="card">
+                <div className="card-image">
+                  <span className="card-title">Card Title</span>
+                </div>
+                <div className="card-content center">
+                  <img
+                    alt="Jonatan Ariste"
+                    className="circle homePic"
+                    src="https://villatours.com.mx/web/wp-content/uploads/2018/05/hawai-al-completo.jpg"
+                  />
+                  <p>
+                    Bienvenidos a <strong>Truchigram</strong>, esta app# esta
+                    creada para el curso de Firebase de escuela devRock para
+                    mostrar un primer ejemplo del poder de esta base de datos y
+                    lo fácil que resulta para arrancar a crear.
+                  </p>
+                </div>
+                <div className="card-action right-align">
+                  <button className="waves-effect waves-light btn" onClick="">
+                    Logear con Google
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </React.Fragment>
+    );
+  }
+}
+
+export default Home;
