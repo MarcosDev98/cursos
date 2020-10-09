@@ -1,8 +1,8 @@
 import React from "react";
-import Post from "./component-post";
+import Post from "./post";
 import firebase from "firebase/app";
 import "firebase/database";
-import Loading from "./component-loading";
+import Loading from "./loading";
 
 class FeedContent extends React.Component {
   state = {
