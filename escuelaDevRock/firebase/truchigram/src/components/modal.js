@@ -6,9 +6,42 @@ import "firebase/database";
 import "firebase/firebase-storage";
 
 class Modal extends React.Component {
+
+  state = {
+    user: {
+      photoURL: "",
+      displayName: "",
+    },
+  };
+
   componentDidMount() {
     M.AutoInit();
+    firebase.auth().onAuthStateChanged(user =>{
+      this.setState({user})
+    })
   }
+  handleChange = (e) =>{
+    this.setState({
+      txt: e.target.value
+    })
+  }
+
+  handleUpload = (e) =>{
+    e.preventDefault()
+    const record = {
+      avatar: this.state.user.photoURL,
+      nombre: this.state.user.displayName,
+      txt: this.state.txt,
+      pic: "",
+    };
+
+    const db = firebase.database();
+    const dbRef = db.ref("pictures");
+    const newPicture = dbRef.push();
+    newPicture.set(record);
+
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -24,8 +57,8 @@ class Modal extends React.Component {
           <div className="modal-content">
             <h4>Posteá en Truchigram</h4>
             <div className="chip">
-              <img src="https://lh4.googleusercontent.com/-cK0jvQHC8ro/AAAAAAAAAAI/AAAAAAABbJk/c8c3cA-ztl0/photo.jpg" />
-              Jonatan Ariste
+              <img src={this.state.user.photoURL} />
+              {this.state.user.displayName}
             </div>
 
             <div className="row">
@@ -36,9 +69,11 @@ class Modal extends React.Component {
                     <textarea
                       id="icon_prefix2"
                       className="materialize-textarea"
+                      onChange={this.handleChange}
                     />
                     <label htmlFor="icon_prefix2">Mensaje</label>
                     <FileUpload />
+                    <button onClick={this.handleUpload}>Subir</button>
                   </div>
                 </div>
               </form>

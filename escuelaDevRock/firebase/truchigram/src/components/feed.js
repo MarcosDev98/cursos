@@ -7,7 +7,7 @@ import Loading from "./loading";
 class FeedContent extends React.Component {
   state = {
     data: [],
-    loading: null
+    loading: true,
   };
   componentDidMount() {
     this.setState({
@@ -38,6 +38,16 @@ class FeedContent extends React.Component {
         }
       ]
     });
+
+    const db = firebase.database();
+    const dbRef = db.ref("pictures")
+    dbRef.on('child_added', snapshot =>{
+      this.setState({
+        data: this.state.data.concat(snapshot.val()),
+        loading: false,
+      })
+    })
+
   }
 
   render() {
