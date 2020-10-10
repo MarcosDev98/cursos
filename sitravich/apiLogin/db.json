@@ -1,0 +1,28 @@
+{
+
+
+    "usuarios":[
+        {
+            "id": 1,
+            "apellido": "Perez",
+            "nombre": "Juan",
+            "username": "juanperezz",
+            "password": "827ccb0eea8a706c4c34a16891f84e7b"
+        },
+
+        {
+
+            "id": 2,
+            "apellido": "Garcia",
+            "nombre": "Maria",
+            "username": "mariagarcia",
+            "password": "01cfcd4f6b8770febfb40cb906715822"
+
+        }
+
+
+
+    ]
+
+
+}
