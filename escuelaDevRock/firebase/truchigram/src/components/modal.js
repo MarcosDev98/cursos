@@ -12,6 +12,7 @@ class Modal extends React.Component {
       photoURL: "",
       displayName: "",
     },
+    uploadValue: 0,
   };
 
   componentDidMount() {
@@ -28,17 +29,39 @@ class Modal extends React.Component {
 
   handleUpload = (e) =>{
     e.preventDefault()
-    const record = {
-      avatar: this.state.user.photoURL,
-      nombre: this.state.user.displayName,
-      txt: this.state.txt,
-      pic: "",
-    };
-
-    const db = firebase.database();
+    
+    //seteo y referencia de la bd de storage.
+    const file = e.target.files[0];
+    const storageRef = firebase.storage().ref(`fotos/${file.name}`);
+    const task = storageRef.put(file);
+    
+    //lo que hacemos mientras sube
+    task.on("state_changed", snapshot =>{
+      let percentage = (snapshot.bytesTransferred/snapshot.totalBytes) * 100;
+      this.setState({
+        uploadValue: percentage
+      })
+    },
+    //Lo que hacemos con los errores 
+    error => {
+      console.log(error.message)
+    },
+    //Lo que hacemos ni bien subio la foto
+    () => {
+      const record = {
+        avatar: this.state.user.photoURL,
+        nombre: this.state.user.displayName,
+        txt: this.state.txt,
+        pic: task.snapshot.metadata.fullPath,
+      };
+      const db = firebase.database();
     const dbRef = db.ref("pictures");
     const newPicture = dbRef.push();
     newPicture.set(record);
+    }
+    );
+
+    
 
   }
 
@@ -72,8 +95,8 @@ class Modal extends React.Component {
                       onChange={this.handleChange}
                     />
                     <label htmlFor="icon_prefix2">Mensaje</label>
-                    <FileUpload />
-                    <button onClick={this.handleUpload}>Subir</button>
+                    <FileUpload onUpload={this.handleUpload} uploadValue={this.state.uploadValue} />
+                    
                   </div>
                 </div>
               </form>
