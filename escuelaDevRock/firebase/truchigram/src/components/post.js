@@ -3,8 +3,35 @@ import firebase from "firebase/app";
 import "firebase/firebase-storage";
 class Post extends React.Component {
   state = {
-    url: null
+    url: ""
   };
+
+  componentWillMount(){
+    this._isMounted = true;
+    
+    /**
+     * 
+     * POR FIN!!!!!!!!!!!!!!
+     * todo el dia para hacer esto.
+     * Solucionado con la documentacion de firebase.
+     *  
+     */
+
+    let referencia = this.props.pic.substring(6)
+    console.log("referencia: ",referencia);
+    var storage = firebase.storage();
+    var storageRef = storage.ref("/fotos/")
+
+    storageRef.child(referencia).getDownloadURL().then((imagen) => {
+      this.setState({
+        url: imagen
+      })
+    }).catch((error) =>{
+      console.log("error: ",error.message);
+    })
+    
+  }
+  
 
   render() {
     return (
@@ -26,7 +53,7 @@ class Post extends React.Component {
           </div>
 
           <div className="card-image">
-            <img src={this.props.pic} alt="" />
+            <img src={this.state.url} alt="" />
           </div>
           <div className="card-content">
             <p>{this.props.txt}</p>

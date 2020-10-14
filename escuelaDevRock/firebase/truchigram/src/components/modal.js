@@ -80,7 +80,7 @@ class Modal extends React.Component {
           <div className="modal-content">
             <h4>Posteá en Truchigram</h4>
             <div className="chip">
-              <img src={this.state.user.photoURL} />
+              <img src={this.state.user.photoURL} alt="" />
               {this.state.user.displayName}
             </div>
 

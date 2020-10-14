@@ -17,7 +17,7 @@ class FeedContent extends React.Component {
             "https://lh3.googleusercontent.com/-0Be0kMvq83o/AAAAAAAAAAI/AAAAAAAAADw/DPClJzUcTrY/photo.jpg",
           nombre: "Escuela DevRock",
           pic:
-            "https://firebasestorage.googleapis.com/v0/b/truchigram.appspot.com/o/fotos%2FFlyers-Completos.png?alt=media&token=c19ddcdd-9e2b-4893-a652-e969944fbc27",
+            "fotos/la-playita-las-galeras-63769945.jpg",
           txt: "Ultimo Dev Rock Podcast :) "
         },
         {
@@ -25,7 +25,7 @@ class FeedContent extends React.Component {
             "https://lh3.googleusercontent.com/-5n_RO4d2faw/AAAAAAAAAAI/AAAAAAAACBw/gzBUz33i2LI/photo.jpg",
           nombre: "Ceci Escamilla Gigirey",
           pic:
-            "https://firebasestorage.googleapis.com/v0/b/truchigram.appspot.com/o/fotos%2Fprevia%20hs.jpg?alt=media&token=e3da74d7-add5-4045-a531-60d18a79cc09",
+            "fotos/la-playita-las-galeras-63769945.jpg",
           txt: "Se viene el HOT SALE en Talleres a Color"
         },
         {
@@ -33,7 +33,7 @@ class FeedContent extends React.Component {
             "https://lh5.googleusercontent.com/-R7EVYqUSM6k/AAAAAAAAAAI/AAAAAAAAc2k/B785irxFDrE/photo.jpg",
           nombre: "Jeremías Figueroa",
           pic:
-            "https://firebasestorage.googleapis.com/v0/b/truchigram.appspot.com/o/fotos%2Fphoto5102793831006447627.jpg?alt=media&token=db4a3655-1c8f-482a-bf00-5aebdb7fbd9e",
+            "fotos/la-playita-las-galeras-63769945.jpg",
           txt: "Chusmeando truchigram\nVamos con el curso de Firebase 🔥🙌🏾"
         }
       ]
@@ -53,7 +53,7 @@ class FeedContent extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {this.state.loading && <Loading />}
+        {this.state.loading/* && <Loading />*/}
         <br />
         <br />
         <br />
