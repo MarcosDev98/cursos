@@ -9,6 +9,9 @@ class FeedContent extends React.Component {
     data: [],
     loading: true,
   };
+
+  
+
   componentDidMount() {
     this.setState({
       data: [
@@ -46,7 +49,14 @@ class FeedContent extends React.Component {
         data: this.state.data.concat(snapshot.val()),
         loading: false,
       })
-    })
+    });
+    /* const record = {
+      algo: ""
+    };
+    const db2 = firebase.database();
+  const dbRef2 = db2.ref("usuarios");
+  const newPicture = dbRef2.push();
+  newPicture.set(record); */
 
   }
 

@@ -3,14 +3,26 @@ import Nav from "./components/nav";
 import ReactDOM from "react-dom";
 import Modal from "./components/modal";
 import FeedContent from "./components/feed";
+import firebase from "firebase/app"
+import "firebase/database"
+import "firebase/auth"
+import "firebase/storage"
 
 class Feed extends React.Component {
+  state = {
+    user: {photoURL: "", displayName: ""}
+  }
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged((user) => {
+      this.setState({ user })
+    })
+  }
   render() {
     return (
       <React.Fragment>
         <Nav
-          nombre="Jonatan Ariste"
-          avatar="https://lh4.googleusercontent.com/-cK0jvQHC8ro/AAAAAAAAAAI/AAAAAAABbJk/c8c3cA-ztl0/photo.jpg"
+          nombre= {this.state.user.displayName}
+          avatar={this.state.user.photoURL}
         />
         <div className="container">
           <div className="row">
