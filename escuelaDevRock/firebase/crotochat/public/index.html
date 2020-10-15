@@ -154,10 +154,10 @@
 
     function mostrame() {
       const db = firebase.database();
-      const dbRef = db.ref("mensajes");
+      const dbRef = db.ref("mensajes/");
       dbRef.on("child_added", snapshot => {
         let item = document.createElement('li');
-        item.innerHTML = "<Strong>" + snapshot.val().nombre + "</strong>: " + snapshot.val().txt;
+        item.innerHTML = "<Strong>" + snapshot.val().nombre + "</strong>: " + snapshot.val().txt
         mensajes.appendChild(item);
         let items = document.querySelectorAll('li');
         let last = items[items.length - 1];
