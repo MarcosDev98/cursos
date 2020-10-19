@@ -11,22 +11,27 @@ class Login extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
-            <div className="col-md-2 borde1"></div>
-            <div className="col-md-8 borde2">
+            
+            <div className="col">
               <div className="card-login">
-                <input type="text" />
-                <input type="password" />
-                <button type="submit" onClick={this.handleClick}>
+                
+                <label htmlFor="usr">Usuario</label>
+                <input type="text" className="form-control" />
+                <label htmlFor="pwd">Contraseña</label>
+                <input type="password" className="form-control" /> 
+
+
+               
+                <button className="btn btn-light" type="button" onClick={this.handleClick}>
                   Ingresar
                 </button>
-                <button type="" onClick={this.handleClick2}>
+                <button className="btn btn-light" type="button" onClick={this.handleClick2}>
                   Registrar
                 </button>
               </div>
             </div>
-            <div className="col-md-2 borde3"></div>
           </div>
         </div>
       </React.Fragment>

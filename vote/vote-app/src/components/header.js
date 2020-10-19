@@ -6,25 +6,17 @@ class Header extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <header className="head">
-          <img src={logo} alt="Logo Sitravich"></img>
+        <div className="head">
 
           <h1 className="title">Elecciones</h1>
+          
           <div className="nav">
-            <ul className="li">
-              {" "}
-              <a href="">Nueva Elección</a>{" "}
-            </ul>
-            <ul className="li">
-              {" "}
-              <a href="">Votar</a>{" "}
-            </ul>
-            <ul className="li">
-              {" "}
-              <a href="">Que se yo</a>{" "}
+            <ul>
+              <li><a href="">Votar</a></li>
+              <li><a href="">Nueva votación</a></li>
             </ul>
           </div>
-        </header>
+        </div>
       </React.Fragment>
     );
   }
