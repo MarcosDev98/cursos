@@ -1,0 +1,22 @@
+.head {
+  padding-top: 2em;
+  padding-bottom: 50px;
+  display: flex;
+  background: yellow;
+  justify-items: center;
+  align-items: center;
+}
+
+header img {
+  width: 125px;
+  height: 125px;
+  margin-right: 27%;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.nav {
+  text-decoration: none;
+}
