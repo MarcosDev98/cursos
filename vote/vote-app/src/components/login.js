@@ -5,8 +5,11 @@ class Login extends React.Component {
   handleClick() {
     console.log("Hizo click en Ingresar.");
   }
-  handleClick2() {
+  handleClick2 = (e) => {
+    e.preventDefault();
     console.log("Hizo click en Registrar.");
+    this.props.history.push("/sign-up")
+
   }
   render() {
     return (
