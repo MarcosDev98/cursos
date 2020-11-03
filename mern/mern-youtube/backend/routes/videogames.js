@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router;
+const router = express.Router();
 
-const {list, create} = require('../controllers/videogameController');
+const {create, list} = require('../controllers/videogameController');
 
 
 router.get('/videogames', list);
