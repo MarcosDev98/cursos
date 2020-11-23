@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>template-literals-expressions</title>
+    </head>
+    <body>
+        <script>
+            const nombre = 'marcos'
+
+            console.log(`Todos estos son  templates literals,
+            los template literals permiten recibir expresiones sin
+            tener que concatenar y respetan el formato que se les indica.`)
+            console.log(`Puedo pasar variables: Mi nombre es ${nombre}`)
+            console.log(`Puedo pasar valores: Mi edad es ${22}`)
+            console.log(
+                `Puedo definir variables: Mi nombre es ${(x =
+                    'marcos')} en una variable recien definida`
+            )
+            console.log(
+                `También puedo definir funciones: ${(function sumar() {
+                    return 4 + 2
+                })()}
+            		Esta es una funcion que se autoejecuta.`
+            )
+            console.log(
+                `Tambien puedo usar funciones anonimas ${(function () {
+                    return 'algo'
+                })()}`
+            )
+            console.log(
+                `Tambien funciones flecha ${(() => {
+                    return 'marcos arrow'
+                })()}`
+            )
+            console.log(`Tambien ternarios ${true && 'marcos ternario'}`)
+            console.log(
+                `Esto nose que es, pero tambien se puede hacer :p ${
+                    false ? 'marcos true' : 'marcos false'
+                }`
+            )
+            console.log(
+                `Puedo mapear arrays ${['a', 'b', 'c'].map(
+                    (letra) => `${letra}`
+                )}`
+            )
+        </script>
+    </body>
+</html>
