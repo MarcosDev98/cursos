@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones</title>
+  </head>
+  <body>
+    <script>
+      
+      //Definicion, declaración o sentencia de una función.
+      
+      function myFunction(algo){
+        return `Esta es una función muy bonita. ${algo}`;
+      }
+      
+      //Pueden ser anónimas.
+      const noNameFunction = function (){
+        return ""
+      };
+
+      //Arrow Function Sintaxis
+      //Siempre son anónimas.
+
+      () => {
+        return 'Esta es una arrow function muy bonita';
+      }
+      
+      // return en una sola línea.
+      const Funcion = () => 'return en una sola linea'
+
+
+      //un solo parámetro.
+
+      const myFunc = (param) => `Esta es una funcion con un ${param}`;
+
+
+      //algunos usan un guion bajo para indicar que no hay paŕametros.
+      //es una convención popular.
+      const myFunc2 = _ => '';
+
+
+
+
+      //QUEDÉ EN LA PARTIDE HOISTING
+
+
+      //Hoisting o elevamiento en español.
+      //es el proceso mediante el cual el interprete mueve determinados tipos de variables y funciones al principio del código, lo que permite que sean llamados antes de su declración.
+      
+      //NO TODAS LAS FUNCIONES Y VARIABLES HACEN HOISTING 
+
+      
+      name()
+      function name(){
+        return 'marcos';
+      }
+      
+
+      // CONST no hace hoisting
+      nombre()
+      const nombre = () =>{
+        return 'marcos';
+      }
+
+      //LET no hace hoisting
+      apellido()
+      let apellido = () =>{
+        return 'aguado';
+      }
+
+      // VAR hace hoisting como "undefined"
+
+      edad()
+      var edad = () => {
+        return 22;
+      }
+
+
+
+      //THIS
+
+      //las funciones tienen su propio this
+
+      function ejemploThis(nombre){
+        this.nombre  = `${nombre} :)`
+      }
+
+      var user = new ejemploThis('marcos');
+      console.log(user.nombre);
+
+      // las arrow functions no tienen su propio this
+
+      const ejemploThis2 = (apellido) =>{
+        // la siguiente asignacion no va funcionar, ya que las arrow functions no tienen this. 
+        // el this va hacer referencia a la proxima estructura que esté por encima de la arrow function y que tenga this (por ejemplo, una función común, un objeto, una clase).  
+        this.apellido = `${apellido} :C`
+      }
+
+
+      // indentación de funciones.
+
+
+      // forma erronea
+      function time(){
+        this.seg = 0;
+        setInterval(function () {
+          this.seg++
+          console.log(this.seg);
+        }, 1000);
+      }
+      new time()
+
+      //forma correcta antigua.
+
+      function tiempo(){
+        const self = this
+        self.seg = 0
+        setInterval(function (){
+          self.seg ++
+          console.log(self.seg);
+        }, 1000)
+      }
+
+      new tiempo();
+
+      //forma correcta nueva
+
+      function superTiempo(){
+        this.seg = 0
+        setInterval(() => {
+          this.seg++
+          console.log(this.seg);
+        }, 1000);
+      }
+      new superTiempo();
+
+    </script>
+  </body>
+</html>
