@@ -1,0 +1,18 @@
+
+  .centrarTexto{
+    text-align: center;
+  }
+
+  .centrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200vh;
+  }
+  .estilizar{
+    width: 20vh;
+    margin: 0px;
+    padding: 0px;
+  }
+
+
