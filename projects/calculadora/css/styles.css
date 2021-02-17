@@ -15,4 +15,9 @@
     padding: 0px;
   }
 
+  .display{
+    width: 45vh;
+    height: 10vh;
+    border-radius: 1px solid red;
+  }
 
