@@ -124,13 +124,31 @@
         display.textContent = ""
         display.innerHTML = resultado
         acumulador = 0
+      } else if  (booleanMultiplicacion == true){
+        booleanMultiplicacion = false
+        resultado = acumulador * parseInt(display.textContent)
+        display.textContent = ""
+        display.innerHTML = resultado
+        acumulador = 0
+      } else if (booleanDivision == true){
+        booleanDivision = false
+        resultado = acumulador / parseInt(display.textContent)
+        display.textContent = ""
+        display.innerHTML = resultado
       }
+
       console.log("=");
     })
     let multiplicar = document.getElementById("multiplicar").addEventListener('click', () => {
+        booleanMultiplicacion = true
+        acumulador = parseInt(display.textContent)
+        display.textContent = ""
       console.log("*");
     })
     let dividir = document.getElementById("dividir").addEventListener('click', () => {
+      booleanDivision = true
+      acumulador = parseInt(display.textContent)
+      display.textContent = ""
       console.log("/");
     })
   </script>
