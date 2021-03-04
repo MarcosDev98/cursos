@@ -1,16 +1,19 @@
 import './App.css';
-import Hola from "./components/Hola";
+/* import Hola from "./components/Hola";
 import Contador from "./components/Contador"
 import Listado from './components/Listado'
-import Temperatura from './components/Temperatua'
+import Temperatura from './components/Temperatua' */
+import Formulario from './components/Formulario'
 
 function App() {
   return (
     <div className="App">
-      <Hola></Hola>
+      {/* <Hola></Hola>
       <Contador></Contador>
       <Listado></Listado>
-      <Temperatura></Temperatura>
+      <Temperatura></Temperatura> */}
+      <Formulario/>
+
     </div>
   );
 }
