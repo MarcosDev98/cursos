@@ -4,22 +4,46 @@ import uniqid from 'uniqid';
 function Listado() {
   const [nombre, setNombre] = useState('');
   const [listado, setListado] = useState([]);
+  const [modoEdicion, setModoEdicion] = useState(false);
+  const [id, setId] = useState('');
+  const [error, setError] = useState(null);
 
   const RegistrarNombre = (e) => {
     e.preventDefault();
-
-    const nuevoNombre = {
-      id: uniqid(),
-      nombre: nombre,
-    };
-
-    setListado([...listado, nuevoNombre]);
-    setNombre('');
+    if (nombre === ''){
+      alert('El campo no puede estar vacío.')
+      return
+    }else{
+      const nuevoNombre = {  
+        id: uniqid(),
+        nombre: nombre,
+      };
+  
+      setListado([...listado, nuevoNombre]);
+      setNombre('');
+    }
+    
   };
 
   const borrarNombre = (id) => {
     const nuevoArray = listado.filter( item => item.id !== id)
     setListado(nuevoArray)
+  }
+
+
+  const editar = (item) => {
+    setModoEdicion(true)
+    setNombre(item.nombre)
+    setId(item.id)
+  }
+
+  const editarNombre = (e) => {
+    e.preventDefault()
+    const nuevoArray = listado.
+    map( item => item.id === id ? {id: id, nombre: nombre}: item)
+    setListado(nuevoArray)
+    setModoEdicion(false)
+    setNombre('')
   }
 
   return (
@@ -29,9 +53,8 @@ function Listado() {
         <div className="col-md-8">
           <h2>Formulario para agregar nombres</h2>
           <form
-            onSubmit={(e) => {
-              RegistrarNombre(e);
-            }}
+            onSubmit={
+              modoEdicion ? editarNombre : RegistrarNombre}
             className="form-group"
           >
             <input
@@ -46,7 +69,7 @@ function Listado() {
             />
             <input
               className="btn btn-info btn-block mt-3"
-              value="Registrar nombre"
+              value={modoEdicion ? 'EDITAR NOMBRE' : 'REGISTRAR NOMBRE'}
               type="submit"
             />
           </form>
@@ -62,6 +85,11 @@ function Listado() {
                   className="btn btn-danger float-right"
                   onClick={()  => borrarNombre(item.id)}>
                   BORRAR
+                </button>
+                <button 
+                  className="btn btn-info float-right"
+                  onClick={()  => editar(item)}>
+                  EDITAR
                 </button>
                 {item.nombre}
               </li>
