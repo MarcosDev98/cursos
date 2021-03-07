@@ -10,8 +10,8 @@ function Listado() {
 
   const RegistrarNombre = (e) => {
     e.preventDefault();
-    if (nombre === ''){
-      alert('El campo no puede estar vacío.')
+    if (!nombre.trim()){
+      setError('El campo nombre no debe estar vacío.')
       return
     }else{
       const nuevoNombre = {  
@@ -21,6 +21,7 @@ function Listado() {
   
       setListado([...listado, nuevoNombre]);
       setNombre('');
+      setError(null);
     }
     
   };
@@ -32,18 +33,28 @@ function Listado() {
 
 
   const editar = (item) => {
+    
     setModoEdicion(true)
     setNombre(item.nombre)
     setId(item.id)
   }
 
   const editarNombre = (e) => {
-    e.preventDefault()
-    const nuevoArray = listado.
-    map( item => item.id === id ? {id: id, nombre: nombre}: item)
-    setListado(nuevoArray)
-    setModoEdicion(false)
-    setNombre('')
+    e.preventDefault();
+
+    if(!nombre.trim()){
+      setError('El campo nombre no debe estar vacío.');
+      return;
+    }else{
+      const nuevoArray = listado.
+      map( item => item.id === id ? {id: id, nombre: nombre}: item)
+      setListado(nuevoArray);
+      setModoEdicion(false);
+      setNombre('');
+      setError(null);
+    }
+
+    
   }
 
   return (
@@ -95,6 +106,16 @@ function Listado() {
               </li>
             )}
           </ul>
+          {
+            error != null ? (
+              <div className="alert alert-danger">
+                {error}
+              </div>
+            ):
+            (
+              <div></div>
+            )
+          }
         </div>
       </div>
     </Fragment>
