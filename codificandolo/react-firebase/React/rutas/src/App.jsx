@@ -17,7 +17,7 @@ function App() {
           <Link to="/inicio" >Inicio</Link>
             <Home></Home>
           </Route>
-          <Route path="/inicio" >
+          <Route path="/inicio/:id/:nombre" >
             <Link to="/">Base</Link>
             <Inicio></Inicio>
           </Route>
