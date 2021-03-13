@@ -1,4 +1,6 @@
 import React, {Fragment} from 'react';
+import Home from './components/Home';
+import Inicio from './components/Inicio.jsx';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,14 +13,16 @@ function App() {
     <Fragment>
       <Router>
         <Switch>
+          <Route exact path="/" >
+          <Link to="/inicio" >Inicio</Link>
+            <Home></Home>
+          </Route>
           <Route path="/inicio" >
-            Estas en el inicio
+            <Link to="/">Base</Link>
+            <Inicio></Inicio>
           </Route>
           <Route path="/productos" >
             Estos son los productos
-          </Route>
-          <Route path="/" >
-            Estas en el home
           </Route>
         </Switch>
       </Router>
