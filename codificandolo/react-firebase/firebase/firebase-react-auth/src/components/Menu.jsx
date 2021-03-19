@@ -1,7 +1,26 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import {authentication} from '../firebase-config';
+
 
 function Menu(){
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect( () => {
+    authentication.onAuthStateChanged((user) =>{
+      if( user ){
+        setUsuario(user.email)
+      }
+    })
+
+  }, [])
+
+
+  const cerrarSesion = () => {
+    authentication.signOut()
+    setUsuario(null)
+  }
+
   return(
     <Fragment>
       <div className="container">
@@ -17,6 +36,17 @@ function Menu(){
               <Link className="nav-link" to="/admin">Admin</Link>
             </li>
           </ul>
+          {
+            usuario ?
+            (
+            <button
+              onClick={cerrarSesion}
+              className="btn btn-danger"
+              >Cerrar Sesion</button>
+              )
+            :
+            (<span/>)
+          }
         </nav>
       </div>
     </Fragment>

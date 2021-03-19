@@ -5,18 +5,43 @@ function Login(){
 
   const [email, setEmail] = useState('');
   const [password, setPassowrd] = useState('');
+  const [msgError, setMsgError] = useState(null);
 
   const registrarUsuario = (e) => {
     e.preventDefault()
 
-    try{
-      authentication.createUserWithEmailAndPassword(email,password);
-      alert('Usuario registrado con éxito.')
-    }catch(e){
-      alert('Se produjo un error al registrar el usuario.')
-      console.log(e);
-    }
+    authentication.createUserWithEmailAndPassword(email,password)
+      .then( (res) => {alert('Usuario registrado')})
+      .catch( (e) => {
+        if (e.code === 'auth/invalid-email'){
+          setMsgError('Formato email incorrecto')
+        } else if (e.code === 'auth/weak-password'){
+          setMsgError('La contraseña debe tener 6 caracteres o más.')
+        }else if (e.code === 'auth/email-already-in-use') {
+          setMsgError('El email ya se encuentra registrado')
+        }
+        else {
+          console.log(e.code);
+        }
+      })
+    
   }
+
+  const logearUsuario = (e) => {
+    authentication.signInWithEmailAndPassword(email,password)
+    .then( (res) => {console.log(res)})
+    .catch((err) => {
+      if (err.code === 'auth/wrong-password'){
+        setMsgError('Contraseña incorrecta')
+      } 
+      else if (err.code === 'auth/user-not-found'){
+        setMsgError('E-mail incorrecto')
+      } else{
+        console.log(err.code);
+      }
+    })
+  }
+
 
 
   return(
@@ -32,7 +57,7 @@ function Login(){
               onChange={(e) => {setEmail(e.target.value)}} 
               className="form-control"
               placeholder="e-mail"
-              type="email" />
+              type="text" />
               <input
               onChange={(e) => {setPassowrd(e.target.value)}} 
               className="form-control mt-4"
@@ -40,10 +65,28 @@ function Login(){
               type="password"
               maxLength="20"/>
               <input 
-              className="btn btn-success btn-block mt-4"
+              className="btn btn-dark btn-block mt-4"
               value="Registrar"
               type="submit" />
             </form>
+            <button
+              onClick={logearUsuario}
+              className="btn btn-success btn-block"
+              >Iniciar sesión
+              </button>
+            {
+
+              msgError ? 
+              (<Fragment>
+                <div className="">
+                  {msgError}
+                </div>
+              </Fragment>)
+              :
+              (<span></span>)
+
+
+            }
           </div>
           <div className="col-md-2"></div>
         </div>
