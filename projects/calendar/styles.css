@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:wght@400;700&display=swap");
+
+
+:root{
+  --azul: #3498db;
+  --rosado: #ef6590;
+  --lila: #ad9ce9;
+  --blanco: #f5f6f8;
+}
+
+
+body{
+  background-color: var(--azul);
+}
+.container{
+  font-family: Muli;
+  background-color: var(--blanco);  
+}
+
+.header{
+  background-color: var(--lila);
+  text-align: center;
+  text-shadow: 0.5 #222;
+  margin-top: 20px;
+  height: 5vh;
+  border: 1px solid #0000ff
+}
+
+
+.columnas{
+  background-color: var(--rosado);
+  height: 90vh;
+  border: 1px solid #bfc219;
+}
+
+.borde{
+  border: 0.5px solid #000
+}
