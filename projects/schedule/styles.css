@@ -1,0 +1,22 @@
+table {
+  border: 1px solid #0000ff;
+}
+
+.borde{
+  border: 2px solid #000;
+}
+
+td {
+  text-align: center;
+}
+th{
+  text-align: center;
+}
+
+.SO{
+  background-color: #ccc;
+}
+
+.AM{
+  background-color: #ff00ff;
+}
