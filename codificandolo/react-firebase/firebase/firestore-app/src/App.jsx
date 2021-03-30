@@ -9,6 +9,17 @@ function App() {
   const [error, setError] = useState(null);
   const [aviso, setAviso] = useState(null);
 
+
+  useEffect(() => {
+    const obtenerUsuarios = async () => {
+      const { docs } = await db.collection('agenda').get();
+      const nuevoArray = docs.map(item => ({id:item.id, ...item.data()}));
+      setUsuarios(nuevoArray);
+    }
+    obtenerUsuarios()
+  },[])
+
+
   const validarUsuarios = (e) => {
     e.preventDefault()
 
@@ -87,7 +98,22 @@ function App() {
           </div>
           <div className="col-md-6">
             <h2>Tu Agenda</h2>
-            
+            <ul className="mt-5">
+            {
+              usuarios.length !== 0 ?
+              (
+                
+                usuarios.map((item) => (
+                  <li key={item.id}>{item.nombre}     -   {item.telefono} </li>
+                ))
+                
+              )
+              :
+              (
+                <span className="alert alert-info mt-5"> No hay contactos en la agenda</span>
+              )
+            }
+            </ul>
           </div>
         </div>
       </div>
