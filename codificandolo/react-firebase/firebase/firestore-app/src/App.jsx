@@ -10,7 +10,8 @@ function App() {
   const [aviso, setAviso] = useState(null);
 
 
-  //solo un comentario para git
+  //solo un comentario para git   
+  //otro
   useEffect(() => {
     const obtenerUsuarios = async () => {
       const { docs } = await db.collection('agenda').get();
