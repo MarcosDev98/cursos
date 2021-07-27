@@ -29,3 +29,4 @@ const r = tsuma(10000)
 
 console.log(r)
 
+// otro comentario para github
