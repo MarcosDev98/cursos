@@ -18,7 +18,7 @@
  */
 /* 
 const p1 = Promise.resolve(1)
-
+//comment
 console.log(p1)
 
 p1
