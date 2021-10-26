@@ -1,27 +1,67 @@
-import { useRef } from 'react';
-
+import { useState } from 'react';
 
 const App = () => {
-
-    const input = useRef();
-    const file = useRef()
-    const submit = () => {
-        console.log(input.current.value);
-        console.log(file.current.files[0]);
-        const form = new FormData()
-        form.append('archivo', file.current.files[0])
-        form.append('campo', input.current.value)
-        fetch('/lala', {method: 'POST', body: form})
-    }
-
+    const [value, setValue] = useState({ 
+        normal: '', 
+        texto: '', 
+        select: 'chanchofeliz', 
+        check: false,
+        estado: 'felipe',
+        })
+    const handleChange = ({ target }) => {
+        setValue({ 
+            ...value,
+            [target.name]: target.type === 'checkbox'
+            ? target.checked
+            : target.value
+        })
+    } 
+    console.log(value);
     return (
         <div>
+            {value.length < 5 ? <span>longitud minima de 5</span> : null}
+            <input type="text" name="normal" value={value.normal} onChange={handleChange} />
+            <textarea name='texto' value={value.texto} onChange={handleChange} />
+
+            <select value={value.select} name="select" onChange={handleChange}>
+                <option value=''> -- Seleccione--</option>
+                <option value='chanchofeliz'>Chancho feliz</option>
+                <option value='chanchitofeliz'>Chanchito feliz</option>
+                <option value='chanchitotriste'>Chanchito triste</option>
+                <option value='felipe'>Felipe</option>
+            </select>
+
+            <input 
+                type="checkbox"
+                name="check"
+                onChange={handleChange}
+                checked={value.check}
+            />
+
             <div>
-                <span>lala</span>
-                <input type='text' name='campo' ref={input} />
-                <input type='file' ref={file} />
+                <label>Chancho</label>
+            <input 
+                onChange={handleChange} 
+                type="radio" 
+                value="feliz" 
+                name="estado" 
+                checked={value.estado === 'feliz'}
+            /> Feliz
+            <input 
+                onChange={handleChange} 
+                type="radio" 
+                value="triste" 
+                name="estado"
+                checked={value.estado === 'triste'}
+            /> Triste
+            <input 
+                onChange={handleChange} 
+                type="radio" 
+                value="felipe" 
+                name="estado"
+                checked={value.estado === 'felipe'}
+            /> Felipe
             </div>
-            <input type='submit' value='Enviar' onClick={submit} />
         </div>
     )
 }
