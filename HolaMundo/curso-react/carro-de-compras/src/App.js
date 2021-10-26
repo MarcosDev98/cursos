@@ -4,6 +4,9 @@ import Layout from './components/Layout';
 import Title from './components/Title';
 import Navbar from './components/Navbar';
 
+//proyecto hecho con componentes basados en clases.
+//hecho asi unicamente con fines didacticos.
+
 class App extends Component {
   state = {
     productos: [
@@ -12,6 +15,7 @@ class App extends Component {
       {name: 'Lechuga', price: 1000, img: '/productos/lechuga.jpg'},
     ],
     carro: [],
+    esCarroVisible: false,
   }
 
   agregarAlCarro = (producto) => {
@@ -33,10 +37,18 @@ class App extends Component {
     })
   }
 
+  mostrarCarro = () => {
+    if (!this.state.carro.length) {
+      return;
+    }
+    this.setState({ esCarroVisible: !this.state.esCarroVisible })
+  }
+
   render() {
+    const { esCarroVisible } = this.state
     return (
       <div>
-        <Navbar carro={this.state.carro} />
+        <Navbar carro={this.state.carro} esCarroVisible={esCarroVisible} mostrarCarro={this.mostrarCarro} />
         <Layout>
           <Title />
           <Productos
