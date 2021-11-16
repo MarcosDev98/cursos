@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
-import { mac, makeFetchingReducer, makeSetReducer, reduceReducers, makeCrudReducer } from './utils';
+import { asyncMac, mac, mat, makeFetchingReducer, makeSetReducer, reduceReducers, makeCrudReducer } from './utils';
+
+const asyncTodos = mat('todos');
 
 
 
-export const setPending = mac('todos/pending');
-export const setFulFilled = mac('todos/fulfilled', 'payload');
-export const setError = mac('todos/error', 'error');
+const [setPending, setFulfilled, setError] = asyncMac(asyncTodos);
+
 export const setComplete = mac('todo/complete', 'payload');
 export const setFilter = mac('filter/set', 'payload');
+
 
 export const fetchThunk = () => async dispatch => {
   dispatch(setPending());
@@ -15,7 +17,7 @@ export const fetchThunk = () => async dispatch => {
     const response = await fetch('https://jsonplaceholder.typicode.com/todos');
     const data = await response.json();
     const todos = data.slice(0,10);
-    dispatch(setFulFilled(todos))
+    dispatch(setFulfilled(todos))
     console.log(data);
   } catch (e) {
     dispatch(setError())
@@ -24,11 +26,7 @@ export const fetchThunk = () => async dispatch => {
 
 export const filterReducer = makeSetReducer(['filter/set']);
 
-export const fetchingReducer = makeFetchingReducer([
-  'todos/pending',
-  'todos/fulfilled',
-  'todos/rejected',
-]);
+export const fetchingReducer = makeFetchingReducer(asyncTodos);
 
 
 
