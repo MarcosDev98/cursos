@@ -1,14 +1,13 @@
 import { combineReducers } from 'redux';
+import { mac, makeFetchingReducer, makeSetReducer, reduceReducers, makeCrudReducer } from './utils';
 
-const setPending = () =>  ({ type: 'todos/pending' })
 
- const setFulFilled = payload => ({ type: 'todos/fulfilled', payload });
 
- const setError = e => ({ type: 'todos/error', error: e.message });
- 
-export const setComplete = payload => ({ type: 'todo/complete', payload });
- 
-export const setFilter = payload => ({ type: 'filter/set', payload });
+export const setPending = mac('todos/pending');
+export const setFulFilled = mac('todos/fulfilled', 'payload');
+export const setError = mac('todos/error', 'error');
+export const setComplete = mac('todo/complete', 'payload');
+export const setFilter = mac('filter/set', 'payload');
 
 export const fetchThunk = () => async dispatch => {
   dispatch(setPending());
@@ -23,51 +22,23 @@ export const fetchThunk = () => async dispatch => {
   }
 }
 
+export const filterReducer = makeSetReducer(['filter/set']);
 
-export const filterReducer = (state = 'all', action) => {
-  switch (action.type) {
-    case 'filter/set':
-      return action.payload
-    default:
-      return state;
-  }
-}
-const initialFetching = { loading: 'idle', error: null };
+export const fetchingReducer = makeFetchingReducer([
+  'todos/pending',
+  'todos/fulfilled',
+  'todos/rejected',
+]);
 
-export const fetchingReducer = (state = initialFetching, action) => {
-  switch (action.type) {
-    case 'todos/pending':
-      return { ...state, loading: 'pending' }
-    case 'todos/fulfilled':
-      return { ...state, loading: 'succeded' }
-    case 'todos/error':
-      return { error: action.error, loading: 'rejected' }
-    default:
-      return state;
-  }
-}
 
-export const todosReducer = (state = [], action) => {
-  switch (action.type) {
-    case 'todos/fulfilled': {
-      return action.payload
-    }
-    case 'todo/add': {
-      return state.concat({  ...action.payload })
-    }
-    case 'todo/complete': {
-      const newTodos = state.map(todo => {
-        if (todo.id === action.payload.id) {
-          return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-      })
-      return newTodos;
-    }
-    default:
-      return state;
-  }
-}
+
+const fulfilledReducer = makeSetReducer(['todos/fulfilled']);
+
+const crudReducer = makeCrudReducer(['todo/add','todo/complete'])
+
+export const todosReducer = reduceReducers(crudReducer, fulfilledReducer);
+
+
 
 export const reducer = combineReducers({
   todos: combineReducers({
@@ -76,6 +47,7 @@ export const reducer = combineReducers({
   }),
   filter: filterReducer,
 })
+
 
 export const selectTodos = (state) => {
   const { todos: { entities }, filter } = state;
