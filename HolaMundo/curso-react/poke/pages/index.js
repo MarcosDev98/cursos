@@ -11,7 +11,7 @@ const Pokemon = ({ pokemon }) => {
 const Pokemones = ({ pokemones }) => {
   return (
     <div>
-      <p>Pokemones</p>
+      <p data-testid="titulo" >Mi App de Pokemones</p>
       <ul>
         {pokemones.map((poke) => <Pokemon pokemon={poke} key={poke.name} />)}
       </ul>
