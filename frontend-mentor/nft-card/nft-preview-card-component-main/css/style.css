@@ -1,0 +1,94 @@
+:root {
+    --main-bg: hsl(215, 54%, 11%);
+    --card-bg: hsl(215, 50%, 16%);
+    --line: hsl(215, 32%, 27%);
+    --white: hsl(0, 0%, 100%);
+    --soft-blue: hsl(215, 51%, 70%);
+    --cyan: hsl(178, 100%, 50%);
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--soft-blue);
+}
+
+h3 {
+    margin: 0;
+}
+
+h4 {
+    margin: 0;
+}
+
+.container {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px 20px 20px 20px;
+    background-color: var(--main-bg);
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 100px 0 0 0;
+    height: 60vh;
+    width: 20vw;
+
+    background-color: var(--card-bg);
+    border-radius: 10px;
+}
+
+img {
+    margin-top: 15px;
+    border-radius: 10px;
+    height: 30vh;
+    width: 15vw;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.card-title {
+    color: var(--white);
+    text-align: left;
+}
+
+.price {
+    color: var(--cyan)
+}
+
+hr {
+    color: var(--line);
+    width: 17vw;
+    font-weight: 300;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    text-align: justify;
+}
