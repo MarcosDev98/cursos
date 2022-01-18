@@ -8,70 +8,51 @@
 }
 
 body {
+    background-color: var(--main-bg);
     font-family: 'Outfit', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    font-size: 18px;
     margin: 0;
 }
 
 p {
-    font-size: 14px;
-    margin: 0;
+    font-size: 18px;
     color: var(--soft-blue);
 }
 
-h3 {
-    margin: 0;
-}
-
-h4 {
-    margin: 0;
-}
 
 .container {
-    display: flexbox;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 20px 20px 20px 20px;
-    background-color: var(--main-bg);
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    padding: 1em;
 }
 
 .card {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 100px 0 0 0;
-    height: 60vh;
-    width: 20vw;
-
     background-color: var(--card-bg);
-    border-radius: 10px;
+    margin: 1em .5em 2em .5em;
+    border-radius: .65em;
+    width: 15em;
+    
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.3em;
 }
 
 img {
-    margin-top: 15px;
-    border-radius: 10px;
-    height: 30vh;
-    width: 15vw;
+    width: 13em;
+    height: 13em;
+    border-radius: .65em;
 }
 
-.icon {
-    width: 20px;
-    height: 20px;
+.avatar {
+    width: 2em;
+    height: 2em;
 }
+
 
 .card-title {
     color: var(--white);
-    text-align: left;
 }
 
 .price {
@@ -80,15 +61,5 @@ img {
 
 hr {
     color: var(--line);
-    width: 17vw;
-    font-weight: 300;
 }
 
-.data {
-    display: flex;
-    justify-content: space-between;
-}
-
-.text {
-    text-align: justify;
-}
