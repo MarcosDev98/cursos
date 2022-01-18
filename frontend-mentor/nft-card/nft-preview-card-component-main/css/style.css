@@ -22,6 +22,7 @@ p {
 
 .container {
     display: flex;
+    justify-content: center;
     padding: 1em;
 }
 
@@ -31,6 +32,12 @@ p {
     border-radius: .65em;
     width: 15em;
     
+}
+
+.data-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 .75em 0 .75em;
 }
 
 .img-container {
@@ -63,3 +70,6 @@ hr {
     color: var(--line);
 }
 
+svg {
+    margin: 1em 1 em 0 0;
+}
