@@ -7,6 +7,11 @@
     --cyan: hsl(178, 100%, 50%);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: var(--main-bg);
     font-family: 'Outfit', sans-serif;
@@ -30,7 +35,7 @@ p {
     background-color: var(--card-bg);
     margin: 1em .5em 2em .5em;
     border-radius: .65em;
-    width: 15em;
+    width: 20em;
     
 }
 
@@ -47,19 +52,22 @@ p {
 }
 
 img {
-    width: 13em;
-    height: 13em;
+    width: 15em;
+    height: 15em;
     border-radius: .65em;
 }
 
-.avatar {
-    width: 2em;
-    height: 2em;
-}
+
 
 
 .card-title {
     color: var(--white);
+    padding: 1em 0 1em .25em;
+}
+
+.card-text {
+    padding: 0 0 1em .25em;
+    font-size: .85em;
 }
 
 .price {
@@ -68,8 +76,66 @@ img {
 
 hr {
     color: var(--line);
+    margin: .7em 0 .7em 1.35em;
+    width: 85%;
+    border: none;
+    height: .05em;
+    background: var(--line);
+    
 }
 
 svg {
-    margin: 1em 1 em 0 0;
+    margin: 0 .3em 0 .5em;
+}
+
+.title-container {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 0 1em;
+}
+
+.text-container {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    margin: 0 0 0 1em;
+    width: 80%;
+}
+
+.author-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1em -2em;
+}
+
+.avatar {
+    width: 1.75em;
+    height: 1.75em;
+    border-radius: 50%;
+    border: .11em solid var(--white);
+}
+
+p span {
+    color: var(--white);
+}
+
+.author-container p {
+    margin: .45em 0 0 .65em;
+    font-size: .8em;
+}
+
+.data-container p{
+    font-weight: 600;
+    font-size: .8em;
+    margin: 0 0 0 2em;
+}
+
+.eth-icon {
+    position: relative;
+    left: 3.1em;
+}
+
+.clock-icon {
+    position: relative;
+    left: 16.5em;
 }
